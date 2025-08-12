@@ -1,42 +1,129 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Genel düzen */
+:root {
+  --bg: #0f172a;        /* slate-900 */
+  --card: #111827;      /* gray-900 */
+  --muted: #94a3b8;     /* slate-400 */
+  --text: #e5e7eb;      /* gray-200 */
+  --accent: #22d3ee;    /* cyan-400 */
+  --ok: #22c55e;        /* green-500 */
+  --err: #ef4444;       /* red-500 */
+  --load: #f59e0b;      /* amber-500 */
+  --code: #0b1020;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
+              radial-gradient(1200px 600px at 110% 10%, rgba(34,197,94,.10), transparent 60%),
+              var(--bg);
+  color: var(--text);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Kapsayıcı */
+.app {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 16px;
 }
 
+/* Üst başlık */
+.app__header {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.app__header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: .3px;
+}
+.app__header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Kart */
 .card {
-  padding: 2em;
+  background: linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.7));
+  border: 1px solid rgba(148,163,184,.15);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.card h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Satır */
+.row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.label {
+  color: var(--muted);
+  font-size: 14px;
+}
+.value {
+  background: var(--code);
+  color: #cbd5e1;
+  padding: 6px 10px;
+  border-radius: 10px;
+  word-break: break-all;
+}
+
+/* Rozetler */
+.badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+.badge--ok {
+  background: rgba(34,197,94,.15);
+  border: 1px solid rgba(34,197,94,.45);
+  color: var(--ok);
+}
+.badge--err {
+  background: rgba(239,68,68,.12);
+  border: 1px solid rgba(239,68,68,.45);
+  color: var(--err);
+}
+.badge--loading {
+  background: rgba(245,158,11,.12);
+  border: 1px solid rgba(245,158,11,.45);
+  color: var(--load);
+}
+
+/* JSON sonuç alanı */
+.pre {
+  margin-top: 12px;
+  background: #0b1222;
+  border: 1px solid rgba(148,163,184,.15);
+  padding: 14px;
+  border-radius: 12px;
+  overflow: auto;
+  max-height: 360px;
+  font-size: 13px;
+}
+
+/* Mobil düzen */
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
 }
